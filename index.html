@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Faheem ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to top, #ffdde1, #ee9ca7);
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 45px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .click-text {
+            font-size: 20px;
+            margin-top: 10px;
+            opacity: 0.9;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .heart {
+            font-size: 90px;
+            cursor: pointer;
+            animation: beat 1s infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        #messageBox {
+            display: none;
+            margin-top: 30px;
+            font-size: 24px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .floating {
+            position: absolute;
+            bottom: -50px;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {transform: translateY(0);}
+            100% {transform: translateY(-100vh);}
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Faheem ❤️</h1>
+    <div class="click-text">Click my heart 💖</div>
+
+    <div class="heart" onclick="showMsg()">💓</div>
+
+    <div id="messageBox">
+        Miss you mera baccha 🥺💗<br>
+        You are my one and only 💫<br><br>
+        Myy jaanuuu I miss youuuu so much... 🥺💖
+    </div>
+</div>
+
+<script>
+function showMsg() {
+    document.getElementById("messageBox").style.display = "block";
+}
+
+// floating hearts
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 300);
+</script>
+
+</body>
+</html>
