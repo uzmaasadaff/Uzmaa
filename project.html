@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You 💛</title>
+
+<style>
+body {
+  background-color: #fff5f5;
+  font-family: Arial;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  cursor: pointer;
+  color: red;
+}
+
+.touch {
+  font-size: 12px;
+  color: black;
+}
+
+#messageBox {
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px pink;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sorry {
+  position: absolute;
+  color: #ff4d4d;
+  font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="messageBox" onclick="finalMessage()">
+  Tap here 💛
+</div>
+
+<script>
+
+// create hearts
+for (let i = 0; i < 9; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.top = Math.random() * window.innerHeight + "px";
+
+  heart.innerHTML = "❤️<br><span class='touch'>Touch me</span>";
+
+  heart.onclick = function () {
+    burstSorry(heart);
+  };
+
+  document.body.appendChild(heart);
+}
+
+let clicked = 0;
+
+function burstSorry(heart) {
+  heart.remove();
+  clicked++;
+
+  for (let i = 0; i < 10; i++) {
+    let s = document.createElement("div");
+    s.className = "sorry";
+    s.innerText = "SORRY 😭";
+    s.style.left = Math.random() * window.innerWidth + "px";
+    s.style.top = Math.random() * window.innerHeight + "px";
+    document.body.appendChild(s);
+
+    setTimeout(() => s.remove(), 1000);
+  }
+
+  if (clicked >= 5) {
+    document.getElementById("messageBox").style.display = "block";
+  }
+}
+
+function finalMessage() {
+  document.body.innerHTML = `
+    <h1 style="color:black; margin-top:100px;">
+    I MISS YOUUU J 💛<br><br>
+    Ab maan bhi ja na please 🥺
+    </h1>
+  `;
+}
+
+</script>
+
+</body>
+  </html>
