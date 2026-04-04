@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}#startBox { background: white; padding: 40px; border-radius: 20px; font-size: 24px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+#main { display: none; text-align: center; }
+
+.heart { font-size: 30px; cursor: pointer; margin: 10px; }
+
+#final { display: none; font-size: 28px; color: white; } </style>
+
+</head>
+<body><div id="startBox" onclick="start()">🎁 Tap to Open</div><div id="main">
+  <h1>Happy Birthday Love of My Life ❤️</h1>
+  <div id="hearts"></div>
+</div><div id="final">
+  <h1>Thank you for coming in my life ❤️</h1>
+  <p>I love you more than everything 💋</p>
+</div><script>
+const messages = [
+  "You are my happiness ❤️",
+  "I miss you every second 🥺",
+  "You make my life beautiful ✨",
+  "I love your smile 😊",
+  "You are my safe place 💖",
+  "I feel lucky to have you 💕",
+  "You are my forever ❤️",
+  "You complete me 💫",
+  "I love you endlessly 😘",
+  "You are my everything 💋"
+];
+
+let clicked = 0;
+
+function start() {
+  document.getElementById('startBox').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+
+  const container = document.getElementById('hearts');
+
+  messages.forEach((msg, index) => {
+    let heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.className = 'heart';
+    heart.onclick = () => {
+      alert(msg);
+      heart.style.display = 'none';
+      clicked++;
+      if(clicked === messages.length) {
+        endScreen();
+      }
+    };
+    container.appendChild(heart);
+  });
+}
+
+function endScreen() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('final').style.display = 'block';
+}
+</script></body>
+  </html>
